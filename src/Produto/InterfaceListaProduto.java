@@ -1,8 +1,14 @@
-package Acessórios;
+
 
 public interface InterfaceListaProduto {
 	
-	void CadastrarCatálogo(Produto produto);
+	void CadastrarCatalogo(Produto produto);
+	
+	void RemoverCatalogo(String nome);
+	
+	Produto Procurar(String nome);
+	
+	boolean Existe(String nome);
 	
 	void AtualizarDescriçao(String nome, String novadescriçao);
 	

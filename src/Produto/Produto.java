@@ -1,4 +1,4 @@
-package Acessórios;
+
 
 public class Produto {
 	protected String nome;
@@ -6,17 +6,21 @@ public class Produto {
 	protected double preço;
 	protected String descriçao;
 	protected String marca; //fabricante 
+	protected String numserie;
 	
-	
-	
-	public Produto(String nome, double estrelas, double preço, String descriçao, String marca) {
+	public Produto(String nome, double estrelas, double preço, String descriçao, String marca, String numserie) {
 		this.nome = nome;
 		this.estrelas = estrelas;
 		this.preço = preço;
 		this.descriçao = descriçao;
 		this.marca = marca;
+		this.numserie = numserie;
 	}
 	
+	public String getNumserie() {
+		return numserie;
+	}
+
 	public String getNome() {
 		return nome;
 	}
