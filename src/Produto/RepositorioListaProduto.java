@@ -1,5 +1,5 @@
 
-public class RepositorioListaProduto implements InterfaceListaProduto {
+public class RepositorioListaProduto implements InterfaceRepositoriosProduto {
 	private Produto produto;
 	private RepositorioListaProduto proximo;
 	

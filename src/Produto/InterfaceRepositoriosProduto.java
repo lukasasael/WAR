@@ -1,6 +1,6 @@
 
 
-public interface InterfaceListaProduto {
+public interface InterfaceRepositoriosProduto {
 	
 	void CadastrarCatalogo(Produto produto);
 	
@@ -9,6 +9,8 @@ public interface InterfaceListaProduto {
 	Produto Procurar(String nome);
 	
 	boolean Existe(String nome);
+	
+	void Atualizarpreço(String nome, double novopreço);
 	
 	void AtualizarDescriçao(String nome, String novadescriçao);
 	
