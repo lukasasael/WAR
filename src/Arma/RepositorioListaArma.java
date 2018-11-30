@@ -1,28 +1,30 @@
-package Produto;
+package Arma;
+import Produto.Produto;
 
-public class RepositorioListaProduto implements InterfaceRepositoriosProduto {
-	private Produto produto;
-	private RepositorioListaProduto proximo;
+public class RepositorioListaArma implements InterfaceRepositoriosArma {
+
+	private Arma arma;
+	private RepositorioListaArma proximo;
 	
-	public RepositorioListaProduto() {}
+	public RepositorioListaArma() {}
 	
-	public void CadastrarCatalogo(Produto produto){
-		if(this.produto.getNome()==null) {
-			this.produto = produto;
-			this.proximo = new RepositorioListaProduto();
+	public void CadastrarCatalogo(Arma arma){
+		if(this.arma.getNome()==null) {
+			this.arma = arma;
+			this.proximo = new RepositorioListaArma();
 		}	
-		else if(this.produto.getNome()==produto.getNome()) {
+		else if(this.arma.getNome()==arma.getNome()) {
 			System.out.println("ja existe otario");
 		}
 		else if(this.proximo!=null){
-			this.proximo.CadastrarCatalogo(produto);
+			this.proximo.CadastrarCatalogo(arma);
 		}
 	}
 	
 	public void RemoverCatalogo(String nome) {
-		if(this.produto!=null) {
-			if(this.produto.getNome().equals(nome)) {
-				this.produto = this.proximo.produto;
+		if(this.arma!=null) {
+			if(this.arma.getNome().equals(nome)) {
+				this.arma = this.proximo.arma;
 				this.proximo = this.proximo.proximo;
 			}
 			else {
@@ -36,9 +38,9 @@ public class RepositorioListaProduto implements InterfaceRepositoriosProduto {
 	
 	public Produto Procurar(String nome) {
 		Produto procurado = null;
-		if(this.produto!=null) {
-			if(this.produto.getNome().equals(nome)) {
-				procurado = this.produto;
+		if(this.arma!=null) {
+			if(this.arma.getNome().equals(nome)) {
+				procurado = this.arma;
 				return procurado;
 			}
 			else {
@@ -53,8 +55,8 @@ public class RepositorioListaProduto implements InterfaceRepositoriosProduto {
 	}
 	
 	public boolean Existe(String nome) {
-		if(this.produto!=null) {
-			if(this.produto.getNome().equals(nome)) {
+		if(this.arma!=null) {
+			if(this.arma.getNome().equals(nome)) {
 				return true;
 			}
 			else {
@@ -68,9 +70,9 @@ public class RepositorioListaProduto implements InterfaceRepositoriosProduto {
 	}
 	
 	public void Atualizarpreco(String nome, double novopreco) {
-		if(this.produto!=null) {
-			if(this.produto.getNome()==nome) {
-				this.produto.setPreco(novopreco);
+		if(this.arma!=null) {
+			if(this.arma.getNome()==nome) {
+				this.arma.setPreco(novopreco);
 			}
 			else if(this.proximo!=null){
 				this.proximo.Atualizarpreco(nome, novopreco);
@@ -82,10 +84,10 @@ public class RepositorioListaProduto implements InterfaceRepositoriosProduto {
 	}
 	
 	public void AtualizarEstrelas(String nome, double novavaliacao) {
-		if(this.produto!=null) {
-			if(this.produto.getNome()==nome) {
-				double x = this.produto.getEstrelas();
-				this.produto.setEstrelas((x + novavaliacao)/2);
+		if(this.arma!=null) {
+			if(this.arma.getNome()==nome) {
+				double x = this.arma.getEstrelas();
+				this.arma.setEstrelas((x + novavaliacao)/2);
 			}
 			else if(this.proximo!=null){
 				this.proximo.Atualizarpreco(nome, novavaliacao);
@@ -97,9 +99,9 @@ public class RepositorioListaProduto implements InterfaceRepositoriosProduto {
 	}
 	
 	public void AtualizarDescricao(String nome, String novadescricao) {
-		if(this.produto!=null) {
-			if(this.produto.getNome()==nome) {
-				this.produto.setDescricao(novadescricao);
+		if(this.arma!=null) {
+			if(this.arma.getNome()==nome) {
+				this.arma.setDescricao(novadescricao);
 			}
 			else if(this.proximo!=null){
 				this.proximo.AtualizarDescricao(nome, novadescricao);
@@ -110,6 +112,3 @@ public class RepositorioListaProduto implements InterfaceRepositoriosProduto {
 		}
 	}
 }
-
-
-

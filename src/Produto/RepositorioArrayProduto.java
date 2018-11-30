@@ -1,3 +1,5 @@
+package Produto;
+
 
 public class RepositorioArrayProduto implements InterfaceRepositoriosProduto {
 	private Produto[] arrayProduto = new Produto[1000];
@@ -5,7 +7,8 @@ public class RepositorioArrayProduto implements InterfaceRepositoriosProduto {
 	public void CadastrarCatalogo(Produto produto) {
 		for(int c=0;c<arrayProduto.length;c++) {
 			if(arrayProduto[c] == null) {
-				this.arrayProduto[c] = produto;	
+				this.arrayProduto[c] = produto;
+				break;
 			}
 		}
 	}
@@ -13,26 +16,27 @@ public class RepositorioArrayProduto implements InterfaceRepositoriosProduto {
 	public void RemoverCatalogo(String nome) {
 		for(int c=0;c<arrayProduto.length;c++) {
 			if(arrayProduto[c].getNome().equals(nome)) {
-				int b = c;
-				for (int i = 1; i < (arrayProduto.length - b); i++) {
-					arrayProduto[b] = arrayProduto [b + 1];
-					b++;
+				for (int i = c; i < arrayProduto.length; i++) {
+					if(arrayProduto[i]!=null)
+					arrayProduto[i] = arrayProduto [i+1];
+					else
+					break;
 				}
 			}
-			else {
-				System.out.println("Produto não encontrado");
+			else if(arrayProduto[c]==null){
+				System.out.println("Produto nao encontrado");
 			}
 		}
 	}
 
 	public Produto Procurar(String nome) {
 		Produto a = null;
-		for(int c=0;c<arrayProduto.length;c++) {
+		for(int c=0;c<arrayProduto.length && a==null;c++) {
 			if(arrayProduto[c].getNome().equals(nome)) {
 				a = arrayProduto[c];
 			}
-			else {
-				System.out.println("Produto não encontrado");
+			else if(arrayProduto[c]==null){
+				System.out.println("Produto nao encontrado");
 				a = null;
 			}
 		}
@@ -41,48 +45,48 @@ public class RepositorioArrayProduto implements InterfaceRepositoriosProduto {
 
 	public boolean Existe(String nome) {
 		boolean a = false;
-		for(int c=0;c<arrayProduto.length;c++) {
+		for(int c=0;c<arrayProduto.length && a==false;c++) {
 			if(arrayProduto[c].getNome().equals(nome)) {
 				a = true;
 			}
-			else {
-				System.out.println("Produto não encontrado");
+			else if(arrayProduto[c]==null){
+				System.out.println("Produto nao encontrado");
 				a = false;
 			}
 		}
 		return a;
 	}
 
-	public void AtualizarDescriçao(String nome, String novadescriçao) {
+	public void AtualizarDescricao(String nome, String novadescricao) {
 		for(int c=0;c<arrayProduto.length;c++) {
 			if(arrayProduto[c].getNome().equals(nome)) {
-				arrayProduto[c].setDescriçao(novadescriçao);
+				arrayProduto[c].setDescricao(novadescricao);
 			}
-			else {
-				System.out.println("Produto não encontrado");
+			else if(arrayProduto[c]==null){
+				System.out.println("Produto nao encontrado");
 			}
 		}
 	}
 
-	public void AtualizarEstrelas(String nome, double novavaliação) {
+	public void AtualizarEstrelas(String nome, double novavaliacao) {
 		for(int c=0;c<arrayProduto.length;c++) {
 			if(arrayProduto[c].getNome().equals(nome)) {
 				double x = arrayProduto[c].getEstrelas();
-				arrayProduto[c].setEstrelas((x + novavaliação)/2);
+				arrayProduto[c].setEstrelas((x + novavaliacao)/2);
 			}
-			else {
-				System.out.println("Produto não encontrado");
+			else if(arrayProduto[c]==null){
+				System.out.println("Produto nao encontrado");
 			}
 		}	
 	}
 
-	public void Atualizarpreço(String nome, double novopreço) {
+	public void Atualizarpreco(String nome, double novopreço) {
 		for(int c=0;c<arrayProduto.length;c++) {
 			if(arrayProduto[c].getNome().equals(nome)) {
-				arrayProduto[c].setPreço(novopreço);
+				arrayProduto[c].setPreco(novopreço);
 			}
-			else {
-				System.out.println("Produto não encontrado");
+			else if(arrayProduto[c]==null){
+				System.out.println("Produto nao encontrado");
 			}
 		}	
 		

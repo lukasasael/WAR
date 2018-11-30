@@ -1,18 +1,19 @@
+package Produto;
 
 
 public class Produto {
 	protected String nome;
 	protected double estrelas; //avaliação
-	protected double preço;
-	protected String descriçao;
+	protected double preco;
+	protected String descricao;
 	protected String marca; //fabricante 
 	protected String numserie;
 	
-	public Produto(String nome, double estrelas, double preço, String descriçao, String marca, String numserie) {
+	public Produto(String nome, double estrelas, double preco, String descricao, String marca, String numserie) {
 		this.nome = nome;
 		this.estrelas = estrelas;
-		this.preço = preço;
-		this.descriçao = descriçao;
+		this.preco = preco;
+		this.descricao = descricao;
 		this.marca = marca;
 		this.numserie = numserie;
 	}
@@ -33,11 +34,11 @@ public class Produto {
 	public void setEstrelas(double estrelas) {
 		this.estrelas = estrelas;
 	}
-	public double getPreço() {
-		return preço;
+	public double getPreco() {
+		return preco;
 	}
-	public void setPreço(double preço) {
-		this.preço = preço;
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 	public String getMarca() {
 		return marca;
@@ -45,10 +46,10 @@ public class Produto {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	public String getDescriçao() {
-		return descriçao;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setDescriçao(String descriçao) {
-		this.descriçao = descriçao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 }
